@@ -1,5 +1,6 @@
 package com.example.todolist.Login;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -10,9 +11,14 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.todolist.Main.MainActivity;
 import com.example.todolist.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class ActivityLogin extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,5 +26,22 @@ public class ActivityLogin extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         NavController navController = ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView)).getNavController();
+
+        mAuth = FirebaseAuth.getInstance();
+        
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            iniciarMainActivity();
+        }
+    }
+
+    public void iniciarMainActivity() {
+        Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    public static void iniciarActivityMain(){
+        iniciarActivityMain();
     }
 }

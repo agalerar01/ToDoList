@@ -29,10 +29,10 @@
         tools:layout_editor_absoluteX="-9dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usuario"
+            android:id="@+id/correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuario"
+            android:hint="Correo"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
