@@ -1,4 +1,4 @@
-package com.example.todolist.Fragments;
+package com.example.todolist.Main.Fragments;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -17,20 +17,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.todolist.Arquitectura.ImageUtils;
-import com.example.todolist.Arquitectura.ViewModel;
-import com.example.todolist.Main.MainActivity;
+import com.example.todolist.Main.Arquitectura.ImageUtils;
+import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.Main.SharedPreferencesHelper;
-import com.example.todolist.Objetos.Tarea;
-import com.example.todolist.R;
-import com.example.todolist.databinding.FragmentListaBinding;
+import com.example.todolist.Main.Objetos.Tarea;
 import com.example.todolist.databinding.FragmentNuevaTareaBinding;
 
 import java.text.ParseException;

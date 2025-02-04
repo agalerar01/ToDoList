@@ -1,4 +1,4 @@
-package com.example.todolist.Arquitectura;
+package com.example.todolist.Main.Arquitectura;
 
 import android.content.Context;
 
@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.example.todolist.Objetos.Tarea;
+import com.example.todolist.Main.Objetos.Tarea;
 
 @Database(entities = {Tarea.class}, version = 1)
 @TypeConverters({Converters.class})

@@ -9,8 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.todolist.Objetos.Tarea;
-import com.example.todolist.Arquitectura.ViewModel;
+import com.example.todolist.Main.Objetos.Tarea;
+import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.R;
 import com.example.todolist.databinding.ViewholderBinding;
 

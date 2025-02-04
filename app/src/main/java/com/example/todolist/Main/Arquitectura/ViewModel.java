@@ -1,4 +1,4 @@
-package com.example.todolist.Arquitectura;
+package com.example.todolist.Main.Arquitectura;
 
 import android.app.Application;
 
@@ -7,7 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.todolist.Objetos.Tarea;
+import com.example.todolist.Main.Objetos.Tarea;
 
 import java.util.Date;
 import java.util.List;

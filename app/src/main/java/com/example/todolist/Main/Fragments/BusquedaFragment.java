@@ -1,4 +1,4 @@
-package com.example.todolist.Fragments;
+package com.example.todolist.Main.Fragments;
 
 import android.os.Bundle;
 
@@ -17,9 +17,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.todolist.Arquitectura.ViewModel;
+import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.Main.Adapter;
-import com.example.todolist.Objetos.Tarea;
+import com.example.todolist.Main.Objetos.Tarea;
 import com.example.todolist.R;
 import com.example.todolist.databinding.FragmentBusquedaBinding;
 

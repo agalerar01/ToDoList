@@ -1,4 +1,4 @@
-package com.example.todolist.Arquitectura;
+package com.example.todolist.Main.Arquitectura;
 
 import android.content.ContentResolver;
 import android.graphics.Bitmap;

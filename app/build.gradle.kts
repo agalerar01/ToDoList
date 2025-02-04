@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -41,6 +42,10 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.8.0"))
+    // Firebase Authentication
+    implementation("com.google.firebase:firebase-auth")
     implementation ("com.google.android.material:material:1.10.0")
     implementation("androidx.navigation:navigation-fragment:2.8.5")
     implementation("androidx.navigation:navigation-ui:2.8.5")

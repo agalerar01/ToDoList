@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listaFragment"
-        android:name="com.example.todolist.Fragments.ListaFragment"
+        android:name="com.example.todolist.Main.Fragments.ListaFragment"
         android:label="Lista De Tareas"
         tools:layout="@layout/fragment_lista" >
         <action
@@ -19,17 +19,17 @@
     </fragment>
     <fragment
         android:id="@+id/nuevaTareaFragment"
-        android:name="com.example.todolist.Fragments.NuevaTareaFragment"
+        android:name="com.example.todolist.Main.Fragments.NuevaTareaFragment"
         android:label="Nueva Tarea"
         tools:layout="@layout/fragment_nueva_tarea" />
     <fragment
         android:id="@+id/detallesListaFragment"
-        android:name="com.example.todolist.Fragments.DetallesListaFragment"
+        android:name="com.example.todolist.Main.Fragments.DetallesListaFragment"
         android:label="Detalle de la Tarea"
         tools:layout="@layout/fragment_detalles_lista" />
     <fragment
         android:id="@+id/busquedaFragment"
-        android:name="com.example.todolist.Fragments.BusquedaFragment"
+        android:name="com.example.todolist.Main.Fragments.BusquedaFragment"
         android:label="Busqueda"
         tools:layout="@layout/fragment_busqueda" >
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/configuracionFragment"
-        android:name="com.example.todolist.Fragments.ConfiguracionFragment"
+        android:name="com.example.todolist.Main.Fragments.ConfiguracionFragment"
         android:label="Configuracion"
         tools:layout="@layout/fragment_configuracion" />
 </navigation>

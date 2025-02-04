@@ -1,4 +1,4 @@
-package com.example.todolist.Fragments;
+package com.example.todolist.Main.Fragments;
 
 import android.os.Bundle;
 
@@ -12,10 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
-import com.example.todolist.Arquitectura.ViewModel;
+import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.Main.SharedPreferencesHelper;
-import com.example.todolist.R;
-import com.example.todolist.databinding.FragmentBusquedaBinding;
 import com.example.todolist.databinding.FragmentConfiguracionBinding;
 
 public class ConfiguracionFragment extends Fragment {
