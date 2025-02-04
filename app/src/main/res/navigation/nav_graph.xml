@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaFragment">
+
+    <fragment
+        android:id="@+id/listaFragment"
+        android:name="com.example.todolist.Fragments.ListaFragment"
+        android:label="Lista De Tareas"
+        tools:layout="@layout/fragment_lista" >
+        <action
+            android:id="@+id/action_listaFragment_to_nuevaTareaFragment"
+            app:destination="@id/nuevaTareaFragment" />
+        <action
+            android:id="@+id/action_listaFragment_to_detallesListaFragment"
+            app:destination="@id/detallesListaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nuevaTareaFragment"
+        android:name="com.example.todolist.Fragments.NuevaTareaFragment"
+        android:label="Nueva Tarea"
+        tools:layout="@layout/fragment_nueva_tarea" />
+    <fragment
+        android:id="@+id/detallesListaFragment"
+        android:name="com.example.todolist.Fragments.DetallesListaFragment"
+        android:label="Detalle de la Tarea"
+        tools:layout="@layout/fragment_detalles_lista" />
+    <fragment
+        android:id="@+id/busquedaFragment"
+        android:name="com.example.todolist.Fragments.BusquedaFragment"
+        android:label="Busqueda"
+        tools:layout="@layout/fragment_busqueda" >
+        <action
+            android:id="@+id/action_busquedaFragment_to_detallesListaFragment"
+            app:destination="@id/detallesListaFragment" />
+        <action
+            android:id="@+id/action_busquedaFragment_to_nuevaTareaFragment"
+            app:destination="@id/nuevaTareaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/configuracionFragment"
+        android:name="com.example.todolist.Fragments.ConfiguracionFragment"
+        android:label="Configuracion"
+        tools:layout="@layout/fragment_configuracion" />
+</navigation>
