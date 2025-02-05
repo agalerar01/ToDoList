@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class ActivityLogin extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
+    private FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,7 @@ public class ActivityLogin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         
         FirebaseUser user = mAuth.getCurrentUser();
+        mAuth.signOut();
         if (user != null) {
             iniciarMainActivity();
         }
@@ -39,9 +40,5 @@ public class ActivityLogin extends AppCompatActivity {
         Intent intent = new Intent(ActivityLogin.this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    public static void iniciarActivityMain(){
-        iniciarActivityMain();
     }
 }

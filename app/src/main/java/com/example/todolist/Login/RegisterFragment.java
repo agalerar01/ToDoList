@@ -27,7 +27,7 @@ public class RegisterFragment extends Fragment {
 
     FragmentRegisterBinding binding;
     NavController navController;
-    FirebaseAuth mAuth;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +57,7 @@ public class RegisterFragment extends Fragment {
                     binding.correo.setError("El campo no puede estar vacio");
                     return;
                 }
-                String email = binding.titulo.getText().toString();
+                String email = binding.correo.getText().toString();
 
                 if (binding.contrasena.getText().toString().equalsIgnoreCase("")) {
                     binding.contrasena.setError("El campo no puede estar vacio");
@@ -71,7 +71,7 @@ public class RegisterFragment extends Fragment {
                 }
                 String reContra = binding.repetirContrasena.getText().toString();
 
-                if (contrasena.equalsIgnoreCase(reContra)) {
+                if (!contrasena.equals(reContra)) {
                     binding.repetirContrasena.setError("La contraseña no coinciden");
                     return;
                 }
@@ -83,7 +83,7 @@ public class RegisterFragment extends Fragment {
                                 if (task.isSuccessful()) {
                                     FirebaseUser usuario = mAuth.getCurrentUser();
                                     Toast.makeText(getContext(), "Inicio de sesión exitoso: " + usuario.getEmail(), Toast.LENGTH_SHORT).show();
-                                    ActivityLogin.iniciarActivityMain();
+                                    iniciarMainActivity();
                                 } else {
                                     Toast.makeText(getContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
@@ -91,5 +91,11 @@ public class RegisterFragment extends Fragment {
                         });
             }
         });
+    }
+
+    public void iniciarMainActivity() {
+        Intent intent = new Intent(requireActivity(), MainActivity.class);
+        startActivity(intent);
+        requireActivity().finish();
     }
 }

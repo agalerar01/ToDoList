@@ -1,5 +1,6 @@
 package com.example.todolist.Login;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,7 +28,7 @@ public class LoginFragment extends Fragment {
 
     FragmentLoginBinding binding;
     NavController navController;
-    FirebaseAuth mAuth;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +58,7 @@ public class LoginFragment extends Fragment {
                     binding.correo.setError("El campo no puede estar vacio");
                     return;
                 }
-                String email = binding.titulo.getText().toString();
+                String email = binding.correo.getText().toString();
 
                 if (binding.contrasenaS.getText().toString().equalsIgnoreCase("")) {
                     binding.contrasenaS.setError("El campo no puede estar vacio");
@@ -72,7 +73,7 @@ public class LoginFragment extends Fragment {
                                 if (task.isSuccessful()) {
                                     FirebaseUser usuario = mAuth.getCurrentUser();
                                     Toast.makeText(getContext(), "Inicio de sesión exitoso: " + usuario.getEmail(), Toast.LENGTH_SHORT).show();
-                                    ActivityLogin.iniciarActivityMain();
+                                    iniciarMainActivity();
                                 } else {
                                     Toast.makeText(getContext(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
@@ -80,5 +81,11 @@ public class LoginFragment extends Fragment {
                         });
             }
         });
+    }
+
+    public void iniciarMainActivity() {
+        Intent intent = new Intent(requireActivity(), MainActivity.class);
+        startActivity(intent);
+        requireActivity().finish();
     }
 }
