@@ -47,6 +47,7 @@ public class DetallesListaFragment extends Fragment {
                 binding.descripcion.setText(tarea.getDescripcion());
                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                 binding.fechaLimite.setText(dateFormat.format(tarea.getFechaLimite()));
+                binding.creador.setText("Creada por: "+tarea.getEmailCreador());
                 if(tarea.getFoto() != null){
                     binding.imageView.setImageBitmap(ImageUtils.blobToBitmap(tarea.getFoto()));
                 }

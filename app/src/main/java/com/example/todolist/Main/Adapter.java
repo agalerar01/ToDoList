@@ -13,6 +13,7 @@ import com.example.todolist.Main.Objetos.Tarea;
 import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.R;
 import com.example.todolist.databinding.ViewholderBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -22,6 +23,7 @@ public class Adapter {
     public ListaAdapter la;
     ViewModel viewModel;
     SharedPreferencesHelper helper;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     public ListaAdapter recuperarAdapter(LayoutInflater lt, NavController navController, int id, View view, ViewModel viewModel){
         this.la = new ListaAdapter(lt, navController, id, view);
@@ -91,7 +93,9 @@ public class Adapter {
 
             holder.itemView.setOnClickListener(v -> navegarPantallaDetalle(tarea));
 
-            holder.binding.imageButton2.setOnClickListener(v -> marcarHecha(tarea, holder));
+            if(tarea.getEmailCreador().equals(mAuth.getCurrentUser().getEmail().toString())) {
+                holder.binding.imageButton2.setOnClickListener(v -> marcarHecha(tarea, holder));
+            }
         }
 
         @Override

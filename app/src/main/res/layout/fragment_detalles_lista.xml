@@ -76,6 +76,13 @@
                 android:layout_height="21dp" />
 
             <TextView
+                android:id="@+id/creador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center" />
+
+            <TextView
                 android:id="@+id/descripcion"
                 android:layout_width="306dp"
                 android:layout_height="206dp"

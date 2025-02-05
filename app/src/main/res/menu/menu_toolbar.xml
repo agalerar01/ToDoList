@@ -4,6 +4,6 @@
     <item
         android:id="@+id/action_settings"
         android:title="LogOut"
-        android:icon="@drawable/lupa"
+        android:icon="@drawable/cerrar_sesion"
         app:showAsAction="ifRoom" />
 </menu>

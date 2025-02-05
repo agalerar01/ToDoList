@@ -22,6 +22,7 @@ import com.example.todolist.Main.Objetos.Tarea;
 import com.example.todolist.R;
 import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.databinding.FragmentListaBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class ListaFragment extends Fragment {
 
     FragmentListaBinding binding;
     ViewModel viewModel;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,8 +67,9 @@ public class ListaFragment extends Fragment {
                 int posicion = viewHolder.getAdapterPosition();
                 Tarea tarea = ad.obtenerTarea(posicion);
 
-                viewModel.eliminar(tarea);
-
+                if(tarea.getEmailCreador().equals(mAuth.getCurrentUser().getEmail().toString())) {
+                    viewModel.eliminar(tarea);
+                }
                 ad.notifyDataSetChanged();
             }
         });

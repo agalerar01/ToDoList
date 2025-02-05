@@ -37,6 +37,10 @@ public class MainActivity extends AppCompatActivity {
                 R.id.listaFragment, R.id.busquedaFragment, R.id.configuracionFragment
         ).build();
 
+        if(mAuth.getCurrentUser() == null){
+            redirectToLogin();
+        }
+
         NavController navController = ((NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.navHostFragment)).getNavController();
 
         NavigationUI.setupWithNavController(binding.toolbar, navController, appBarConfiguration);
