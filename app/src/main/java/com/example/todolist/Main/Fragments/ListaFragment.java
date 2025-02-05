@@ -88,17 +88,5 @@ public class ListaFragment extends Fragment {
                 navController.navigate(R.id.action_listaFragment_to_nuevaTareaFragment);
             }
         });
-
-        binding.ordenarPorFecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                viewModel.ordenarPorFecha().observe(getViewLifecycleOwner(), new Observer<List<Tarea>>() {
-                    @Override
-                    public void onChanged(List<Tarea> tareas) {
-                        ad.establecerListaTareas(tareas);
-                    }
-                });
-            }
-        });
     }
 }

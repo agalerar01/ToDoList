@@ -37,10 +37,6 @@ public class ViewModel extends AndroidViewModel {
         return TR.buscar(linea);
     }
 
-    public LiveData<List<Tarea>> ordenarPorFecha(){
-        return TR.ordenarPorFecha();
-    }
-
     public void eliminar(Tarea tarea){
         TR.eliminar(tarea);
     }

@@ -47,10 +47,6 @@ public class TareaRepository {
         return TareaDao.buscar(linea);
     }
 
-    public LiveData<List<Tarea>> ordenarPorFecha(){
-        return TareaDao.ordenarPorFecha();
-    }
-
     public void eliminar(Tarea tarea){
         executor.execute(new Runnable() {
             @Override

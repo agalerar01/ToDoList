@@ -30,9 +30,6 @@ public interface TareaDao {
     @Query("SELECT * FROM Tarea WHERE Titulo LIKE :linea")
     LiveData<List<Tarea>> buscar(String linea);
 
-    @Query("SELECT * FROM Tarea ORDER BY FechaLimite")
-    LiveData<List<Tarea>> ordenarPorFecha();
-
     @Query("SELECT * FROM Tarea WHERE Titulo = :titulo AND Categoria = :categoria AND FechaLimite = :fechaLimite LIMIT 1")
     LiveData<Tarea> buscarIgual(String titulo, String categoria, Date fechaLimite);
 }
