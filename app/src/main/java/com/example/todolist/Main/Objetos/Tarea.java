@@ -13,6 +13,7 @@ public class Tarea {
     public String Titulo;
     public String Categoria;
     public String Descripcion;
+    public String EmailCreador;
     public Date FechaLimite;
     public byte[] Foto;
     public boolean Hecha;
@@ -21,10 +22,11 @@ public class Tarea {
     public Tarea() {
     }
 
-    public Tarea(String titulo, String categoria, String descripcion,Date fechaLimite,byte[] foto) {
+    public Tarea(String titulo, String categoria, String emailCreador, String descripcion,Date fechaLimite,byte[] foto) {
         Titulo = titulo;
         Categoria = categoria;
         Descripcion = descripcion;
+        EmailCreador = emailCreador;
         FechaLimite = fechaLimite;
         Foto = foto;
         Hecha = false;
@@ -56,5 +58,13 @@ public class Tarea {
 
     public void setHecha(boolean fav) {
         Hecha = fav;
+    }
+
+    public String getEmailCreador() {
+        return EmailCreador;
+    }
+
+    public void setEmailCreador(String emailCreador) {
+        EmailCreador = emailCreador;
     }
 }

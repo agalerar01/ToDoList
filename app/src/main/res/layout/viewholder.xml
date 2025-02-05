@@ -17,32 +17,31 @@
 
         <TextView
             android:id="@+id/view_Nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="152dp"
+            android:layout_height="24dp"
             android:layout_gravity="center_horizontal"
-            android:text="Nombre"
+            android:autoSizeTextType="uniform"
             android:textSize="24dp"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.737"
+            app:layout_constraintHorizontal_bias="0.683"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.444" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/view_Categoria"
-            android:layout_width="216dp"
-            android:layout_height="34dp"
+            android:layout_width="162dp"
+            android:layout_height="37dp"
             android:layout_gravity="left"
+            android:autoSizeTextType="uniform"
             android:backgroundTint="@color/black"
-            android:text="Categoria"
             android:textSize="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.052"
+            app:layout_constraintHorizontal_bias="0.02"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.533" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/imageButton2"

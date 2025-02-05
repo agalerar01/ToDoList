@@ -28,6 +28,8 @@ import com.example.todolist.Main.Arquitectura.ViewModel;
 import com.example.todolist.Main.SharedPreferencesHelper;
 import com.example.todolist.Main.Objetos.Tarea;
 import com.example.todolist.databinding.FragmentNuevaTareaBinding;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +41,7 @@ public class NuevaTareaFragment extends Fragment {
     FragmentNuevaTareaBinding binding;
     ViewModel viewModel;
     SharedPreferencesHelper helper;
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     boolean error;
     String titulo = "", categoria = "", descripcion = "", fecha = "";
     private ActivityResultLauncher<Intent> imagePickerLauncher;
@@ -162,7 +165,7 @@ public class NuevaTareaFragment extends Fragment {
                             if (tarea != null) {
                                 binding.errorIgual.setText("No pueden existir dos tareas iguales");
                             } else {
-                                viewModel.insertar(new Tarea(titulo, categoria, descripcion, date, fotoBlob));
+                                viewModel.insertar(new Tarea(titulo, categoria,mAuth.getCurrentUser().getEmail().toString(), descripcion, date, fotoBlob));
                                 helper.actualizarCuenta();
                                 getActivity().getSupportFragmentManager().popBackStack();
                                 if(helper.devolverNoMostrar() == false&&helper.devolverCuenta() == 2){

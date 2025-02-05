@@ -78,7 +78,7 @@ public class Adapter {
             Tarea tarea = lTareas.get(position);
 
             holder.binding.viewNombre.setText(tarea.getTitulo());
-            holder.binding.viewCategoria.setText(String.valueOf(tarea.getFechaLimite()));
+            holder.binding.viewCategoria.setText(tarea.getEmailCreador());
             holder.binding.viewCategoria.setClickable(false);
 
             holder.binding.imageButton2.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
