@@ -82,4 +82,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(mAuth.getCurrentUser() == null){
+            redirectToLogin();
+        }
+    }
 }
