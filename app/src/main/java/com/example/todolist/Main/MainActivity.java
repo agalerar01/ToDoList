@@ -18,13 +18,18 @@ import androidx.navigation.ui.NavigationUI;
 import com.example.todolist.Login.ActivityLogin;
 import com.example.todolist.R;
 import com.example.todolist.databinding.ActivityMainBinding;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private GoogleSignInClient googleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView((binding = ActivityMainBinding.inflate(getLayoutInflater())).getRoot());
 
         setSupportActionBar(binding.toolbar);
+
+        configurarClienteGoogleSignIn();
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.listaFragment, R.id.busquedaFragment, R.id.configuracionFragment
@@ -70,10 +77,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void logoutUser() {
+        boolean loginGoogle = isGoogleLogin();
         mAuth.signOut();
         Toast.makeText(MainActivity.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
 
-        redirectToLogin();
+        if (loginGoogle) { // Si ha iniciado sesión con Google, cerramos sesión en el cliente de Google
+            googleSignInClient.signOut().addOnCompleteListener(this, task -> {
+                Toast.makeText(MainActivity.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+                redirectToLogin();
+            });
+        } else {
+            Toast.makeText(MainActivity.this, "Sesión cerrada", Toast.LENGTH_SHORT).show();
+            redirectToLogin();
+        }
+
     }
 
     private void redirectToLogin() {
@@ -81,6 +98,28 @@ public class MainActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    private void configurarClienteGoogleSignIn() {
+        // Configurar Google Sign-In
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id)) // Usa tu Web client ID
+                .requestEmail()
+                .build();
+
+        // Inicializar Google Sign-In a partir de la configuración previa
+        googleSignInClient = GoogleSignIn.getClient(this, gso);
+    }
+
+    // Determina si el usuario ha iniciado sesión con Google
+    private boolean isGoogleLogin() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        for (UserInfo profile : user.getProviderData()) {
+            if (profile.getProviderId().equals("google.com")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
