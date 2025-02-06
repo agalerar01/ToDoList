@@ -61,6 +61,8 @@ public class RegisterFragment extends Fragment {
         configurarClienteGoogleSignIn();
         inicializarLauncherGoogleSignIn();
 
+        binding.googleSignInButton.setOnClickListener(view1 -> signInWithGoogle());
+
         binding.volverLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
